@@ -11,9 +11,3 @@ app = "musicdrop-fly"
 
 [experimental]
   auto_rollback = true
-
-[checks]
-  [checks.process]
-    type = "process"
-    interval = "30s"
-    timeout = "5s"
