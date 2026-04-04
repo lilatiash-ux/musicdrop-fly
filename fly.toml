@@ -1,5 +1,19 @@
-app = "musicdrop-fly"
+app = "musicdrop-monitor-fly"
 primary_region = "ams"
 
 [build]
-  dockerfile = "Dockerfile"
+  image = "node:18"
+
+[env]
+  NODE_ENV = "production"
+
+[processes]
+  app = "node index.js"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
