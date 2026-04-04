@@ -4,7 +4,7 @@ require("dotenv").config();
 const TOKEN = process.env.TOKEN;
 
 // ID kanału, na który mają iść logi bota
-const LOG_CHANNEL = "WSTAW_TUTAJ_ID_KANAŁU";
+const LOG_CHANNEL = 1489800618515366032;
 
 // Tworzenie klienta Discord
 const client = new Client({
