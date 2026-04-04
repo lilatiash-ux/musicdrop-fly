@@ -1,4 +1,5 @@
 app = "musicdrop-fly"
+primary_region = "fra"
 
 [build]
   dockerfile = "Dockerfile"
