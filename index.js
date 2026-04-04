@@ -159,4 +159,9 @@ process.on("unhandledRejection", (reason) => {
   console.error("[UNHANDLED REJECTION]", reason);
 });
 
-if (!process.env
+if (!process.env.TOKEN) {
+  console.error("[ERROR] Brak TOKEN w zmiennych środowiskowych!");
+  process.exit(1);
+}
+
+client.login(process.env.TOKEN);
