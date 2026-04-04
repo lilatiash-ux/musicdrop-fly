@@ -1,14 +1,5 @@
 app = "musicdrop-fly"
-primary_region = "fra"
+primary_region = "ams"
 
 [build]
   dockerfile = "Dockerfile"
-
-[env]
-  NODE_ENV = "production"
-
-[processes]
-  app = "node index.js"
-
-[experimental]
-  auto_rollback = true
