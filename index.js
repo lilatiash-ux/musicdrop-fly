@@ -1,12 +1,11 @@
 const { Client, GatewayIntentBits } = require("discord.js");
-require("dotenv").config();
 
-const TOKEN = process.env.TOKEN;
+const TOKEN = process.env.TOKEN; // Railway ma to w Variables
 
-// ID kanału, na który mają iść logi bota
-const LOG_CHANNEL = 1489800618515366032;
+// ID kanału, gdzie mają iść logi
+const LOG_CHANNEL = "1489800618515366032";
 
-// Tworzenie klienta Discord
+// Tworzenie klienta
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -15,36 +14,33 @@ const client = new Client({
   ]
 });
 
-// Po zalogowaniu bota
+// Po starcie bota
 client.on("ready", () => {
   console.log(`[BOT] Zalogowano jako ${client.user.tag}`);
 
-  // Status bota
+  // Status jak na Fly.io
   client.user.setPresence({
     activities: [{ name: "MusicDrop", type: 3 }],
     status: "online"
   });
 
-  // Log startu na kanał Discord
+  // Log startu
   const ch = client.channels.cache.get(LOG_CHANNEL);
-  if (ch) {
-    ch.send("🔵 Bot został uruchomiony i działa stabilnie.");
-  }
+  if (ch) ch.send("🔵 Bot uruchomiony i działa stabilnie.");
 
-  console.log("[INFO] Monitorowanie MusicDrop co 20 sekund...");
+  console.log("[INFO] Monitoring aktywny...");
 });
 
-// Twój monitoring / funkcje bota
+// Monitoring – tu wklejasz swój kod, który JUŻ działał
 setInterval(() => {
-  // tu zostawiasz swój kod monitorowania
-  // nic nie zmieniam, bo działa
+  // ← tutaj był Twój kod monitorowania MusicDrop
 }, 20000);
 
-// Automatyczny restart co 6 godzin
+// Automatyczny restart co 6 godzin (tak jak na Fly.io)
 setInterval(() => {
   console.log("[BOT] Automatyczny restart...");
   process.exit(0);
 }, 1000 * 60 * 60 * 6);
 
-// Logowanie bota
+// Logowanie
 client.login(TOKEN);
